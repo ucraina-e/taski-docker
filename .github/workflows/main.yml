@@ -9,12 +9,9 @@ jobs:
   tests:
     runs-on: ubuntu-latest
 
-# Блок services аналогичен docker-compose.yml
     services:
       postgres:
         image: postgres:13.10
-        # Указываем имя тестовой базы, имя и пароль пользователя в открытом виде,
-        # ведь эта база будет работать только во время прогона тестов
         env:
           POSTGRES_USER: django_user
           POSTGRES_PASSWORD: django_password
@@ -99,7 +96,7 @@ jobs:
         with:
           context: ./frontend/
           push: true
-          tags: ucrainae /taski_frontend:latest
+          tags: ucrainae/taski_frontend:latest
 
 
   # Собрать и отправить образ приложения на Docker Hub
